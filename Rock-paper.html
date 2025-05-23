@@ -1,87 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rock Paper Scissors Game</title>
-
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <p>This is a Rock Paper Scissors game</p>  
-
-  <!-- Rock Button -->
-  <button onclick="
-   pickComputerMove();
-    let result = '';
-    if (computerMove === 'rock') {
-      result = 'Tie';
-    } else if (computerMove === 'paper') {
-      result = 'Lose';
-    } else {
-      result = 'Win';
-    }
-
-    alert(`Your move: rock. Computer move: ${computerMove}. You ${result}.`);
-  ">
-    Rock
-  </button>
-
-  <button onclick="
-
-   pickComputerMove();
-
-    let result = '';
-    if (computerMove === 'rock') {
-      result = 'Win';
-    } else if (computerMove === 'paper') {
-      result = 'Tie';
-    } else {
-      result = 'Lose';
-    }
-
-    alert(`Your move: paper. Computer move: ${computerMove}. You ${result}.`);
-  ">
-    Paper
-  </button>
-
-
-  <button onclick="
-
-    pickComputerMove();
-
-    let result = '';
-    if (computerMove === 'rock') {
-      result = 'Lose';
-    } else if (computerMove === 'paper') {
-      result = 'Win';
-    } else {
-      result = 'Tie';
-    }
-
-    alert(`Your move: scissors. Computer move: ${computerMove}. You ${result}.`);
-  ">
-    Scissors
-  </button>
-
-
-   <script>
-  let computerMove = '';
-    function pickComputerMove(){
-    
-    const randomNumber = Math.random();
-    if (randomNumber < 1/3) {
-      computerMove = 'rock';
-    } else if (randomNumber < 2/3) {
-      computerMove = 'paper';
-    } else {
-      computerMove = 'scissors';
-    }
-    return computerMove;
-    }
   
-   </script>
-   
- 
-
+  <div class="main-game-container">
+    <h1 class="gameTitle">Rock Paper Scissors</h1>
+    <p class="gameTitle-muni">Choose Your Weapon Wisely</p>
+    
+    <div class="RPS-icons">
+      <button class="rock" data-choice="rock">
+        <span>&#9994;</span>
+      </button>
+      <button class="paper" data-choice="paper">
+        <span>&#9995;</span>
+      </button>
+      <button class="scissor" data-choice="scissors">
+        <span>&#9996;</span>
+      </button>
+    </div>
+    
+    <div class="verses">
+      <button>
+        <span id="mero-move">&#10067;</span>
+      </button>
+      <div class="vs-text">
+        <p>VS</p>
+      </div>
+      <button>
+        <span id="computer-ko-move">&#10067;</span>
+      </button>
+    </div>
+    
+    <div class="Game-result-button">
+      <button>
+        <p>You</p>
+        <span id="player-score">0</span>
+      </button>
+      <button>
+        <p>Rounds</p>
+        <span id="round-count">0</span>
+      </button>
+      <button>
+        <p>Computer</p>
+        <span id="computer-score">0</span>
+      </button>
+    </div>
+    
+    <div class="message-element" id="game-message"></div>
+    
+    <button class="restart-btn" id="restart-game">
+      Restart Game
+    </button>
+  </div>
 </body>
 </html>
